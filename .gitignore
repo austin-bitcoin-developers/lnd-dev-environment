@@ -1,0 +1,8 @@
+node_modules
+alice/data
+alice/log
+bob/data
+bob/log
+charlie/data
+charlie/log
+package-lock.json
