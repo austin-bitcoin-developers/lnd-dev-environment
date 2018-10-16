@@ -51,4 +51,10 @@ charlie "036ff69f785964f009e9839266ac60e715263afb69612b2824cd7fb8b0695a889c"
 
 `npm install grpc`
 
+**From the `examples` directory**
+
 `node index.js`
+
+Alice pays bob
+
+`node alice_pay_bob.js`

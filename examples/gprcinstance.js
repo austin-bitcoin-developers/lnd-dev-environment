@@ -4,7 +4,7 @@ const grpc = require('grpc');
 process.env.GRPC_SSL_CIPHER_SUITES = 'HIGH+ECDSA'
 
 function createInstance(user, port) {
-    const m = fs.readFileSync(`${__dirname}/${user}/data/admin.macaroon`);
+    const m = fs.readFileSync(`${__dirname}/../${user}/data/admin.macaroon`);
     const macaroon = m.toString('hex');
     
     let metadata = new grpc.Metadata()

@@ -5,7 +5,7 @@ let grpcBob = createInstance('bob', 10002)
 
 grpcBob.addInvoice({
     memo: "created in code",
-    value: 1020,
+    value: 2030,
 }, (errInv, inv) => {
     console.log('payment request recieved', inv.payment_request)
     grpcAlice.sendPaymentSync({
