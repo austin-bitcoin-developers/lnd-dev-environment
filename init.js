@@ -3,6 +3,8 @@ const grpc = require('grpc');
 
 process.env.GRPC_SSL_CIPHER_SUITES = 'HIGH+ECDSA'
 
+const create = process.argv.length > 2 && process.argv[2] == 'create'
+
 function initUser(port, password, mnemonic) {
     const homedir = require('os').homedir()
     
@@ -12,12 +14,19 @@ function initUser(port, password, mnemonic) {
     const lnrpc = lnrpcDescriptor.lnrpc
     const walletUnlocker = new lnrpc.WalletUnlocker(`localhost:${port}`, sslCreds)
     const request = { 
-        wallet_password: Buffer.from(password, 'utf-8'), 
-        cipher_seed_mnemonic: mnemonic
+        wallet_password: Buffer.from(password, 'utf-8')
     }
-    walletUnlocker.initWallet(request, function(err, response) {
-        console.log(response);
-    })
+    if(create) {
+        request.cipher_seed_mnemonic = mnemonic
+        walletUnlocker.initWallet(request, function(err, response) {
+            console.log(err, response);
+        })
+    } else {
+        walletUnlocker.unlockWallet(request, function(err, response) {
+            console.log(err, response);
+        })
+
+    }
 }
 const aliceMnemonic = [
     "abstract",  "deliver",   "expose",    "tackle",

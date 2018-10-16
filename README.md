@@ -26,27 +26,17 @@ Follow [instructions](https://dev.lightning.community/guides/installation/)
 
 ### create wallets
 
-`node init.js`
+`node init.js create` do this the first time only
 
 ### unlock wallets
 
-TODO: write script
-
-`ln-alice unlock`
-
-`alicepass`
-
-`ln-bob unlock` 
-
-`bobpasss`(must be 8 characters)
-
-`ln-charlie unlock`
-
-`charliepass`
+`node init.js` do this on subsequent sessions
 
 ### funding
 
 Follow [instructions](https://dev.lightning.community/tutorial/01-lncli/index.html#funding-alice)
+
+`btcctl --simnet generate 200`
 
 `ln-alice sendcoins rXo6fJSQUJTtMLd62Bcx5kfkrkzMGgjTEz 2000000`
 
