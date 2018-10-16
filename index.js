@@ -1,28 +1,7 @@
-var fs = require('fs');
-var grpc = require('grpc');
-
-process.env.GRPC_SSL_CIPHER_SUITES = 'HIGH+ECDSA'
+const createInstance = require('./gprcinstance')
 
 function setUser(user, port) {
-    var m = fs.readFileSync(`${__dirname}/${user}/data/admin.macaroon`);
-    var macaroon = m.toString('hex');
-
-    var metadata = new grpc.Metadata()
-    metadata.add('macaroon', macaroon)
-    var macaroonCreds = grpc.credentials.createFromMetadataGenerator((_args, callback) => {
-        callback(null, metadata);
-    });
-
-    const homedir = require('os').homedir()
-
-    var lndCert = fs.readFileSync(`${homedir}/.lnd/tls.cert`);
-    var sslCreds = grpc.credentials.createSsl(lndCert);
-
-    var credentials = grpc.credentials.combineChannelCredentials(sslCreds, macaroonCreds);
-
-    var lnrpcDescriptor = grpc.load(`${homedir}/.lnd/rpc.proto`);
-    var lnrpc = lnrpcDescriptor.lnrpc;
-    var instance = new lnrpc.Lightning(`localhost:${port}`, credentials);
+    var instance = createInstance(user, port)
 
     instance.listPeers({}, function (err, response) {
         console.log('Peers:', user, JSON.stringify(response));
