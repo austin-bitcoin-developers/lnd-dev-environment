@@ -34,9 +34,13 @@ Follow [instructions](https://dev.lightning.community/guides/installation/)
 
 ### funding
 
-Follow [instructions](https://dev.lightning.community/tutorial/01-lncli/index.html#funding-alice)
+Reference [instructions](https://dev.lightning.community/tutorial/01-lncli/index.html#funding-alice)
+
+`ln-alice newaddress np2wkh`
 
 `btcctl --simnet generate 200`
+
+`ln-bob newaddress np2wkh`
 
 `ln-alice sendcoins rXo6fJSQUJTtMLd62Bcx5kfkrkzMGgjTEz 2000000`
 
