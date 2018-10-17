@@ -44,6 +44,12 @@ Reference [instructions](https://dev.lightning.community/tutorial/01-lncli/index
 
 `ln-alice sendcoins rXo6fJSQUJTtMLd62Bcx5kfkrkzMGgjTEz 2000000`
 
+`ln-charlie newaddress np2wkh`
+
+`ln-alice sendcoins rbxh7Vjia5wsqht6X9xJUBKLa2UecDuW5d 2000000`
+
+`btcctl --simnet generate 6` also call this to make newly opened channels to make them available
+
 ### pub keys
 alice "024da749d97627bc6ba19ff46bdb74472c2b18672f75653bbe1d4527f44291f18a"
 
@@ -61,3 +67,10 @@ charlie "036ff69f785964f009e9839266ac60e715263afb69612b2824cd7fb8b0695a889c"
 Alice pays bob
 
 `node alice_pay_bob.js`
+
+### additional topics
+
+* multihop payment
+* [payment request breakdown](https://rsbondi.github.io/btc-adventure/lightning/)
+* preimage of [payment hash](http://extranet.cryptomathic.com/hashcalc/index)
+
