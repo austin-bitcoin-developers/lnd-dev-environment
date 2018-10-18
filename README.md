@@ -72,5 +72,6 @@ Alice pays bob
 
 * multihop payment
 * [payment request breakdown](https://rsbondi.github.io/btc-adventure/lightning/)
+* [payment request spec](https://github.com/lightningnetwork/lightning-rfc/blob/master/11-payment-encoding.md)
 * preimage of [payment hash](http://extranet.cryptomathic.com/hashcalc/index)
 
