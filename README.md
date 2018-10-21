@@ -10,6 +10,8 @@ and send funds from there instead of manually as in the tutorial.
 Also I will provide some additional simple code examples of interacting with the setup
 using the grpc api.
 
+Also provided is an option to run with bitcoin core instead of btcd, see notes at the bottom of this page.
+
 ### Install lnd and btcd
 
 Follow [instructions](https://dev.lightning.community/guides/installation/)
@@ -75,3 +77,15 @@ Alice pays bob
 * [payment request spec](https://github.com/lightningnetwork/lightning-rfc/blob/master/11-payment-encoding.md)
 * preimage of [payment hash](http://extranet.cryptomathic.com/hashcalc/index)
 
+### when you are done
+
+`./done.sh` will kill your btcd and lnd processes.  Do not use this if you are developing along side a real world full node
+as it will be killed also, kill processes individually by hand.
+
+### using with bitcoind
+
+instead of installing btcd, install bitcoin core
+
+for `run` and `alias` scripts, append `-bitcoind` ie. `./run-bitcoind`, `source aliases-bitcoind.sh` and `./done-bitcoind.sh`
+
+nodejs scripts are unchanged
