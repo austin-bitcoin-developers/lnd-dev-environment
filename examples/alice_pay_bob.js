@@ -1,7 +1,8 @@
 const createInstance = require('./gprcinstance')
+const bitcoind = process.argv.length > 2 && process.argv[2] == 'bitcoind'
 
-let grpcAlice = createInstance('alice', 10001)
-let grpcBob = createInstance('bob', 10002)
+let grpcAlice = createInstance('alice', 10001, bitcoind)
+let grpcBob = createInstance('bob', 10002, bitcoind)
 
 grpcBob.addInvoice({
     memo: "created in code",

@@ -88,4 +88,6 @@ instead of installing btcd, install bitcoin core
 
 for `run` and `alias` scripts, append `-bitcoind` ie. `./run-bitcoind`, `source aliases-bitcoind.sh` and `./done-bitcoind.sh`
 
-nodejs scripts are unchanged
+`init.js` scripts is unchanged
+
+scripts in `examples` add `bitcoind` as command line parameter, ex. `node alice_pay_bob.js bitcoind`

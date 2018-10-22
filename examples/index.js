@@ -1,7 +1,9 @@
 const createInstance = require('./gprcinstance')
 
+const bitcoind = process.argv.length > 2 && process.argv[2] == 'bitcoind'
+
 function setUser(user, port) {
-    var instance = createInstance(user, port)
+    var instance = createInstance(user, port, bitcoind)
 
     instance.listPeers({}, function (err, response) {
         console.log('Peers:', user, JSON.stringify(response));
