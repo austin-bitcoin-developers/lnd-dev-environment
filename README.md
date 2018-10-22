@@ -43,17 +43,17 @@ to automate, so these are done manually, any help on how to automate appreciated
 
 `ln-alice newaddress np2wkh`
 
-`btcctl --simnet generate 200`
+`btcctl --simnet generate 200`  for bitcoind `bitcoin-cli --regtest generate 200`
 
 `ln-bob newaddress np2wkh`
 
-`ln-alice sendcoins rXo6fJSQUJTtMLd62Bcx5kfkrkzMGgjTEz 2000000`
+`ln-alice sendcoins rXo6fJSQUJTtMLd62Bcx5kfkrkzMGgjTEz 2000000` for bitcoind replace address
 
 `ln-charlie newaddress np2wkh`
 
-`ln-alice sendcoins rbxh7Vjia5wsqht6X9xJUBKLa2UecDuW5d 2000000`
+`ln-alice sendcoins rbxh7Vjia5wsqht6X9xJUBKLa2UecDuW5d 2000000` for bitcoind replace address
 
-`btcctl --simnet generate 6` also call this to make newly opened channels to make them available
+`btcctl --simnet generate 6` (bitcoind as above) also call this to make newly opened channels to make them available
 
 ### pub keys
 alice "024da749d97627bc6ba19ff46bdb74472c2b18672f75653bbe1d4527f44291f18a"
@@ -88,6 +88,8 @@ as it will be killed also, kill processes individually by hand.
 ### using with bitcoind
 
 instead of installing btcd, install bitcoin core
+
+for funding, replace addresses with those generated with `newaddress` command
 
 for `run` and `alias` scripts, append `-bitcoind` ie. `./run-bitcoind`, `source aliases-bitcoind.sh` and `./done-bitcoind.sh`
 
