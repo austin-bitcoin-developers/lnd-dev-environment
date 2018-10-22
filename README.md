@@ -1,4 +1,4 @@
-## Lightning network simnet development environment
+## Lightning network simnet(btcd)/regtest(bitcoind) development environment
 
 The purpose of this talk is to get a local lightning network development environment set up
 to do local development.  This is based on the [lightning tutorial](https://dev.lightning.community/tutorial/01-lncli/index.html).
@@ -37,6 +37,9 @@ Follow [instructions](https://dev.lightning.community/guides/installation/)
 ### funding
 
 Reference [instructions](https://dev.lightning.community/tutorial/01-lncli/index.html#funding-alice)
+
+There is a delay in the generation of coins and the lnd recognizing so `sendcoins` fails when I try
+to automate, so these are done manually, any help on how to automate appreciated
 
 `ln-alice newaddress np2wkh`
 

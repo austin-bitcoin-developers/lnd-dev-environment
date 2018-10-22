@@ -3,6 +3,7 @@ const grpc = require('grpc');
 
 process.env.GRPC_SSL_CIPHER_SUITES = 'HIGH+ECDSA'
 
+// common file for grpc instance
 function createInstance(user, port, bitcoind) {
     const m = fs.readFileSync(`${__dirname}/../${user}/data/${bitcoind ? 'chain/bitcoin/regtest/':'chain/bitcoin/simnet/'}admin.macaroon`);
     const macaroon = m.toString('hex');

@@ -5,7 +5,7 @@ process.env.GRPC_SSL_CIPHER_SUITES = 'HIGH+ECDSA'
 
 const create = process.argv.length > 2 && process.argv[2] == 'create'
 
-function initUser(port, password, mnemonic) {
+function initUser(port, password, mnemonic, cb) {
     const homedir = require('os').homedir()
     
     const lndCert = fs.readFileSync(`${homedir}/.lnd/tls.cert`);
@@ -20,10 +20,12 @@ function initUser(port, password, mnemonic) {
         request.cipher_seed_mnemonic = mnemonic
         walletUnlocker.initWallet(request, function(err, response) {
             console.log(err, response);
+            if(cb) cb()
         })
     } else {
         walletUnlocker.unlockWallet(request, function(err, response) {
             console.log(err, response);
+            if(cb) cb()
         })
 
     }
@@ -36,7 +38,6 @@ const aliceMnemonic = [
     "horror",    "oval",      "kitchen",   "west",  
     "rough",     "sibling",   "destroy",   "test" 
 ]
-initUser(10001, "alicepass", aliceMnemonic)
 
 const bobMnemonic = [
     "ability", "weapon", "van", "genre",  
@@ -47,7 +48,6 @@ const bobMnemonic = [
     "cheese", "cabbage", "benefit", "inch"
 ]
 
-initUser(10002, "bobpasss", bobMnemonic)
 
 const charlieMnemonic =[
     "above", "parrot", "diary", "trumpet",
@@ -57,4 +57,8 @@ const charlieMnemonic =[
     "enemy", "tip", "three", "century",
     "siege", "piece", "snap", "peanut"
 ]
+initUser(10001, "alicepass", aliceMnemonic, () => {
+initUser(10002, "bobpasss", bobMnemonic, () => {
 initUser(10003, "charliepass", charlieMnemonic)
+    })
+})

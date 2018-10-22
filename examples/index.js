@@ -2,6 +2,7 @@ const createInstance = require('./gprcinstance')
 
 const bitcoind = process.argv.length > 2 && process.argv[2] == 'bitcoind'
 
+// simple example of random rpc calls and subscriptions from code
 function setUser(user, port) {
     var instance = createInstance(user, port, bitcoind)
 
